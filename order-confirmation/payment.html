@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KC - Bank Transfer Payment</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: #faf2ea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            color: #3c2b24;
+        }
+        .payment-card {
+            width: 100%;
+            max-width: 420px;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 24px 60px rgba(92, 69, 49, 0.12);
+            padding: 28px;
+            box-sizing: border-box;
+        }
+        .payment-card h1 {
+            margin: 0 0 12px;
+            font-size: 26px;
+            letter-spacing: 0.3px;
+        }
+        .payment-card p {
+            margin: 0 0 16px;
+            line-height: 1.65;
+            color: #5f4a3d;
+        }
+        .bank-info {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+        .bank-info strong {
+            display: block;
+            color: #3c2b24;
+            margin-bottom: 4px;
+        }
+        .payment-action {
+            display: grid;
+            gap: 10px;
+        }
+        .payment-action a,
+        .payment-action button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: none;
+            text-decoration: none;
+            font-weight: 600;
+            background: #8ab882;
+            color: white;
+            cursor: pointer;
+        }
+        .payment-action button {
+            background: #6d8f65;
+        }
+        .payment-action small {
+            display: block;
+            color: #7a6960;
+            font-size: 13px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-card">
+        <h1>Bank Transfer Payment</h1>
+        <p>Use the details below to transfer the order amount directly to the cafe account. After transfer, please keep your receipt and confirm with the store.</p>
+        <div class="bank-info">
+            <div>
+                <strong>Bank</strong>
+                <span id="bankName">-</span>
+            </div>
+            <div>
+                <strong>Bank Account Name</strong>
+                <span id="accountName">-</span>
+            </div>
+            <div>
+                <strong>Bank Account Number</strong>
+                <span id="bankAccountNumber">-</span>
+            </div>
+            <div>
+                <strong>Amount</strong>
+                <span id="amountValue">-</span>
+            </div>
+            <div>
+                <strong>Reference</strong>
+                <span id="referenceValue">-</span>
+            </div>
+        </div>
+        <div class="payment-action">
+            <button id="copyAccount">Copy account number</button>
+            <small>Scan the confirmation QR or use the link to return here for payment details.</small>
+        </div>
+    </div>
+    <script src="payment.js"></script>
+</body>
+</html>

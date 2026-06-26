@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KC - Order Confirmation</title>
+
+    <style>
+        body {
+            background: #ececec;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .receipt {
+            width: 320px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            border-radius: 10px;
+            font-family: "Courier New", monospace;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 10px;
+            color: gray;
+        }
+
+        .line {
+            border-top: 1px dashed black;
+            margin: 10px 0;
+        }
+
+        .payment-section {
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .payment-label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .payment-link {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background: #6d8f65;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .payment-qr {
+            width: 160px;
+            height: 160px;
+            max-width: 100%;
+            margin: 0 auto 10px;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.08);
+            padding: 6px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .payment-help {
+            display: block;
+            color: gray;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            margin: 6px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: gray;
+        }
+
+        .total {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="receipt">
+        <div class="title">Kongkow Cafe</div>
+        <div class="subtitle">Order Confirmation</div>
+
+        <div id="date"></div>
+
+        <div class="line"></div>
+
+        <div id="cart"></div>
+
+        <div class="line"></div>
+
+        <div class="payment-section" id="paymentSection">
+            <div class="payment-label">Ready to pay?</div>
+            <a id="paymentLink" class="payment-link" href="#" target="_blank">Open payment page</a>
+                <img id="paymentQr" class="payment-qr" alt="Payment QR code" src="https://q.me-qr.com/8r2oh8li" />
+            <small class="payment-help">Scan or click the link to open the bank transfer page and complete your payment.</small>
+        </div>
+
+        <div class="total" id="totalItem"></div>
+
+        <div class="footer">
+            Thank You For Shopping At Kongkow Cafe ❤️
+        </div>
+    </div>
+
+    <script src="../db.js"></script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
