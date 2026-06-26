@@ -69,9 +69,10 @@ function loadCart() {
     const paymentQr = document.getElementById('paymentQr');
     const qrData = paymentUrl.toString();
 
+    const localQrAsset = '../assets/Just Example.png';
+
     paymentLink.href = qrData;
     paymentLink.textContent = 'Open payment page';
-    // Use api.qrserver.com to generate a direct QR image for the payment URL
-    paymentQr.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qrData)}`;
+    paymentQr.src = localQrAsset;
     paymentQr.alt = 'Payment QR code';
 }
