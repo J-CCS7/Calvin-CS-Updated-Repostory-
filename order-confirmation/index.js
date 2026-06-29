@@ -85,8 +85,8 @@ function loadCart() {
     const paymentAmount = `Rp ${grandTotal.toLocaleString('id-ID')}`;
     const paymentUrl = new URL('payment.html', window.location.href);
     paymentUrl.searchParams.set('bank', 'BCA');
-    paymentUrl.searchParams.set('name', 'Calvin Carol Sen');
-    paymentUrl.searchParams.set('number', '4373489584');
+    paymentUrl.searchParams.set('name', 'Kongkow Cafe');
+    paymentUrl.searchParams.set('number', '43734895-70');
     paymentUrl.searchParams.set('amount', paymentAmount);
     paymentUrl.searchParams.set('reference', tableNumber ? `Table-${tableNumber}` : 'Table-0000');
 
