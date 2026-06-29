@@ -94,6 +94,63 @@
             font-weight: bold;
             margin-top: 10px;
         }
+
+        .reminder {
+            margin-top: 14px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            background: #fff4d6;
+            border: 1px solid #e8c86b;
+            color: #7a5a00;
+            font-size: 12px;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .whatsapp-fab {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 999px;
+            border: none;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            box-shadow: 0 10px 24px rgba(18, 140, 126, 0.35);
+            z-index: 1000;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .whatsapp-fab:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 14px 28px rgba(18, 140, 126, 0.4);
+        }
+
+        .whatsapp-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            font-size: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-fab {
+                right: 14px;
+                bottom: 14px;
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+        }
     </style>
 </head>
 
@@ -114,16 +171,25 @@
         <div class="payment-section" id="paymentSection">
             <div class="payment-label">Ready to pay?</div>
             <a id="paymentLink" class="payment-link" href="#" target="_blank">Open payment page</a>
-            <img id="paymentQr" class="payment-qr" alt="Payment QR code" src="../assets/Just Example.png" />
+            <img id="paymentQr" class="payment-qr" alt="Payment QR code" src="../assets/My First Qr Code With The Link.png" />
             <small class="payment-help">Scan or click the link to open the bank transfer page and complete your payment.</small>
         </div>
 
         <div class="total" id="totalItem"></div>
 
+        <div class="reminder">
+            Please don’t forget to send your order lists by clicking the "Send Order" button.
+        </div>
+
         <div class="footer">
             Thank You For Shopping At Kongkow Cafe ❤️
         </div>
     </div>
+
+    <a id="whatsappButton" class="whatsapp-fab" href="#" target="_blank" rel="noopener noreferrer" aria-label="Send this order to WhatsApp">
+        <span class="whatsapp-icon">💬</span>
+        <span>Send order</span>
+    </a>
 
     <script src="../db.js"></script>
     <script src="index.js"></script>

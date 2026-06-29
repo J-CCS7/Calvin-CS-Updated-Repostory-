@@ -7,9 +7,14 @@ function loadCart() {
     cart = JSON.parse(params.get('cart'));
 
     let display = '';
+    const orderLines = ['New order from Kongkow Cafe'];
 
     let totalItem = 0;
     let grandTotal = 0;
+
+    const today = new Date();
+    orderLines.push(`Date: ${today.toLocaleString('id-ID')}`);
+    orderLines.push('');
 
     for (let i = 0; i < menus.length; i++) {
         const e = menus[i];
@@ -41,6 +46,8 @@ function loadCart() {
                         </div>
                     </div>
                 `;
+
+                orderLines.push(`${e.name} - ${f.description} x${qty} = Rp ${subtotal.toLocaleString('id-ID')}`);
             }
         }
     }
@@ -52,10 +59,21 @@ function loadCart() {
         Grand Total : Rp ${grandTotal.toLocaleString('id-ID')}
     `;
 
-    const today = new Date();
-
     document.getElementById('date').innerHTML =
         today.toLocaleString('id-ID');
+
+    orderLines.push('');
+    orderLines.push(`Total items: ${totalItem}`);
+    orderLines.push(`Grand total: Rp ${grandTotal.toLocaleString('id-ID')}`);
+
+    const whatsappButton = document.getElementById('whatsappButton');
+    const orderMessage = orderLines.join('\n');
+    const whatsappUrl = `https://wa.me/62816605733?text=${encodeURIComponent(orderMessage)}`;
+
+    if (whatsappButton) {
+        whatsappButton.href = whatsappUrl;
+        whatsappButton.setAttribute('title', 'Send this order to WhatsApp');
+    }
 
     const paymentAmount = `Rp ${grandTotal.toLocaleString('id-ID')}`;
     const paymentUrl = new URL('payment.html', window.location.href);
@@ -69,7 +87,7 @@ function loadCart() {
     const paymentQr = document.getElementById('paymentQr');
     const qrData = paymentUrl.toString();
 
-    const localQrAsset = '../assets/Just Example.png';
+    const localQrAsset = '../assets/My First Qr Code With The Link.png';
 
     paymentLink.href = qrData;
     paymentLink.textContent = 'Open payment page';
