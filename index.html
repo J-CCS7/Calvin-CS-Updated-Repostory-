@@ -19,7 +19,7 @@
             <div class="hero-content">
                 <h1 class="hero-title">Kongkow Cafe</h1>
                 <p class="hero-sub">Waiting for You at • Arcamanik Regency no.112, Jl. Houkeri I</p>
-                <a class="btn primary" href="#menu-grid">See Menu</a>
+                <a class="btn primary" href="#menu-section">See Menu</a>
             </div>
             <!-- decorative coffee cup SVG -->
             <svg class="coffee-svg" width="140" height="140" viewBox="0 0 64 64" fill="none"
@@ -47,7 +47,38 @@
 
         <img src="assets/logo_full.png" alt="Logo" class="logo" />
 
-        <div class="menu-grid" id="menu-grid"></div>
+        <section class="menu-section" id="menu-section">
+            <div class="menu-header">
+                <h2>Our Menus</h2>
+                <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+                    <button class="menu-tab active" onclick="switchCategory('Meals')">Meals</button>
+                    <button class="menu-tab" onclick="switchCategory('Drinks')">Drinks</button>
+                    <button class="menu-tab" onclick="switchCategory('Desserts')">Desserts</button>
+                </div>
+                <div class="menu-search-wrap">
+                    <span class="material-symbols-outlined search-icon">search</span>
+                    <input id="menu-search" class="menu-search" type="search" placeholder="Search menu..." aria-label="Search menu" />
+                </div>
+            </div>
+            <div class="menu-grid" id="menu-grid"></div>
+        </section>
+
+        <div class="table-sticky-bar">
+            <div class="table-sticky-card">
+                <div class="table-sticky-copy">
+                    <span class="table-sticky-icon">🪑</span>
+                    <div>
+                        <strong>Table marker</strong>
+                        <p>Enter your table number or code for smoother service.</p>
+                    </div>
+                </div>
+                <div class="table-input-wrap">
+                    <label class="table-input-label" for="table-number">Table number / code</label>
+                    <input id="table-number" class="table-input" type="text" placeholder="e.g. A12 or 07" aria-label="Table number or code" />
+                </div>
+            </div>
+        </div>
+
         <div class="footer">
             (c) Kongkow Cafe, 2025
             <button class="checkout" onclick="checkout()">

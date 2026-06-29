@@ -5,6 +5,7 @@ loadCart();
 function loadCart() {
     const params = new URLSearchParams(window.location.search);
     cart = JSON.parse(params.get('cart'));
+    const tableNumber = params.get('tableNumber') || '';
 
     let display = '';
     const orderLines = ['New order from Kongkow Cafe'];
@@ -13,7 +14,12 @@ function loadCart() {
     let grandTotal = 0;
 
     const today = new Date();
-    orderLines.push(`Date: ${today.toLocaleString('id-ID')}`);
+    const dateText = today.toLocaleString('id-ID');
+    const tableText = tableNumber ? `Table: ${tableNumber}` : '';
+    orderLines.push(`Date: ${dateText}`);
+    if (tableText) {
+        orderLines.push(tableText);
+    }
     orderLines.push('');
 
     for (let i = 0; i < menus.length; i++) {
@@ -59,8 +65,9 @@ function loadCart() {
         Grand Total : Rp ${grandTotal.toLocaleString('id-ID')}
     `;
 
-    document.getElementById('date').innerHTML =
-        today.toLocaleString('id-ID');
+    document.getElementById('date').innerHTML = tableText
+        ? `<div>${dateText}</div><div>${tableText}</div>`
+        : dateText;
 
     orderLines.push('');
     orderLines.push(`Total items: ${totalItem}`);
@@ -81,7 +88,7 @@ function loadCart() {
     paymentUrl.searchParams.set('name', 'Calvin Carol Sen');
     paymentUrl.searchParams.set('number', '4373489584');
     paymentUrl.searchParams.set('amount', paymentAmount);
-    paymentUrl.searchParams.set('reference', `ORDER-${Date.now()}`);
+    paymentUrl.searchParams.set('reference', tableNumber ? `Table-${tableNumber}` : 'Table-0000');
 
     const paymentLink = document.getElementById('paymentLink');
     const paymentQr = document.getElementById('paymentQr');

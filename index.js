@@ -2,6 +2,8 @@
 // then the cart variable will be like this: 
 // [[0, 0], [0, 0], [0, 0], [0, 0]]
 let cart = [];
+let selectedCategory = 'Meals';
+let searchTerm = '';
 
 function formatPriceK(price) {
     return (price / 1000).toFixed(0) + 'k';
@@ -9,6 +11,14 @@ function formatPriceK(price) {
 
 setupCart();
 renderMenus();
+
+const searchInput = document.getElementById('menu-search');
+if (searchInput) {
+    searchInput.addEventListener('input', (event) => {
+        searchTerm = event.target.value.trim().toLowerCase();
+        renderMenus();
+    });
+}
 
 function substractQty(menuIndex, variantIndex) {
     cart[menuIndex][variantIndex] -= 1;
@@ -52,10 +62,29 @@ function setupCart() {
     }
 }
 
+function switchCategory(category) {
+    selectedCategory = category;
+
+    document.querySelectorAll('.menu-tab').forEach((tab) => {
+        tab.classList.toggle('active', tab.textContent.trim() === category);
+    });
+
+    renderMenus();
+}
+
 function renderMenus() {
     let menuGrid = '';
 
     for (let i = 0; i < menus.length; i++) {
+        if (selectedCategory !== 'All' && menus[i].category !== selectedCategory) {
+            continue;
+        }
+
+        const searchableText = `${menus[i].name} ${menus[i].description} ${menus[i].variants.map((variant) => variant.description).join(' ')}`.toLowerCase();
+        if (searchTerm && !searchableText.includes(searchTerm)) {
+            continue;
+        }
+
         let menuVariantList = '';
         for (let j = 0; j < menus[i].variants.length; j++) {
 
@@ -92,7 +121,7 @@ function renderMenus() {
         `;
     }
 
-    document.getElementById('menu-grid').innerHTML = menuGrid;
+    document.getElementById('menu-grid').innerHTML = menuGrid || '<div class="no-results">No menu matches your search right now.</div>';
 }
 
 function checkout() {
@@ -111,7 +140,12 @@ function checkout() {
     }
 
     const params = new URLSearchParams();
+    const tableNumberInput = document.getElementById('table-number');
+    const tableNumber = tableNumberInput ? tableNumberInput.value.trim() : '';
 
     params.set('cart', JSON.stringify(cart));
+    if (tableNumber) {
+        params.set('tableNumber', tableNumber);
+    }
     window.location.href = `order-confirmation/index.html?${params.toString()}`;
 }
