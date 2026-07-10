@@ -12,6 +12,38 @@ function formatPriceK(price) {
 setupCart();
 renderMenus();
 
+const heroSub = document.querySelector('.hero-sub');
+if (heroSub) {
+    const hour = new Date().getHours();
+    let moodLine = 'A cozy stop for your next break';
+
+    if (hour < 12) {
+        moodLine = 'Freshly brewed for a calm morning start';
+    } else if (hour < 18) {
+        moodLine = 'Perfect for a sunny afternoon recharge';
+    } else {
+        moodLine = 'Warm lights and late-night comfort in every sip';
+    }
+
+    heroSub.innerHTML = `${moodLine}<br>Waiting for You at • Arcamanik Regency no.112, Jl. Houkeri I`;
+}
+
+const revealItems = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+}
+
 const searchInput = document.getElementById('menu-search');
 if (searchInput) {
     searchInput.addEventListener('input', (event) => {

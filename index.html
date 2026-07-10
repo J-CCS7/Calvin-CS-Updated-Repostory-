@@ -19,6 +19,11 @@
             <div class="hero-content">
                 <h1 class="hero-title">Kongkow Cafe</h1>
                 <p class="hero-sub">Waiting for You at • Arcamanik Regency no.112, Jl. Houkeri I</p>
+                <div class="hero-badges" aria-label="Cafe highlights">
+                    <span class="badge-pill">Freshly brewed daily</span>
+                    <span class="badge-pill">Cozy indoor seating</span>
+                    <span class="badge-pill">Fast digital ordering</span>
+                </div>
                 <a class="btn primary" href="#menu-section">See Menu</a>
             </div>
             <!-- decorative coffee cup SVG -->
@@ -42,11 +47,29 @@
             <p>Simple digital ordering, friendly service, and a warm cup ready to brighten your day.</p>
             <p>Whether you're craving breakfast bites or a relaxed afternoon treat, our café has something for every mood.</p>
             <p>Enjoy local flavors, seasonal favorites, and a relaxed vibe from the moment you arrive.</p>
-                        <h4>! Use The Desktop Site For Better Experience !</h4>
+                        <h4>! Use A Desktop For Better Experience !</h4>
             <span class="intro-sticker" aria-hidden="true">☕</span>
         </div>
 
         <img src="assets/logo_full.png" alt="Logo" class="logo" />
+
+        <section class="highlights" aria-label="Cafe highlights">
+            <article class="highlight-card reveal">
+                <p class="eyebrow">Signature pick</p>
+                <h3>Velvety Espresso</h3>
+                <p>Silky crema and a deep roast finish that turns every break into a little ritual.</p>
+            </article>
+            <article class="highlight-card reveal">
+                <p class="eyebrow">Fresh today</p>
+                <h3>Golden Pastries</h3>
+                <p>Flaky layers, sweet comfort, and a warm scent that welcomes you right in.</p>
+            </article>
+            <article class="highlight-card reveal">
+                <p class="eyebrow">Best for</p>
+                <h3>Slow Sundays</h3>
+                <p>Relax with a plate, a drink, and a view of the cafe’s calm, cozy atmosphere.</p>
+            </article>
+        </section>
 
         <section class="menu-section" id="menu-section">
             <div class="menu-header">
@@ -55,6 +78,7 @@
                     <button class="menu-tab active" onclick="switchCategory('Meals')">Meals</button>
                     <button class="menu-tab" onclick="switchCategory('Drinks')">Drinks</button>
                     <button class="menu-tab" onclick="switchCategory('Desserts')">Desserts</button>
+                    <button class="menu-tab" onclick="switchCategory('Snacks')">Snacks</button>
                 </div>
                 <div class="menu-search-wrap">
                     <span class="material-symbols-outlined search-icon">search</span>

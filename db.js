@@ -31,6 +31,11 @@ const menus = [
     { name: 'Premium Omelette', category: 'Meals', description: 'Fluffy omelette with choice of fillings', variants: [{ price: 30000, description: 'Single', stock: 14 }], photoUrl: 'assets/French-Omelette-with-sourdough-bread-mixed-salad.jpg' },
     { name: 'Pancake Stack', category: 'Meals', description: 'Buttery pancakes with maple syrup', variants: [{ price: 35000, description: 'Stack', stock: 12 }], photoUrl: 'assets/pancake.jfif' },
 
+    // Snacks
+    { name: 'Nacho Crunch', category: 'Snacks', description: 'Crispy tortilla chips with cheesy topping', variants: [{ price: 25000, description: 'Regular', stock: 10 }], photoUrl: 'assets/Nacho crunch.webp' },
+    { name: 'Mini Donuts', category: 'Snacks', description: 'Soft fried donuts with a sweet glaze', variants: [{ price: 22000, description: 'Box', stock: 8 }], photoUrl: 'assets/minidonuts.webp' },
+    { name: 'Fries Basket', category: 'Snacks', description: 'Golden fries served hot and crispy', variants: [{ price: 20000, description: 'Regular', stock: 12 }], photoUrl: 'assets/fries basket.jfif' },
+
     // Desserts
     { name: 'Mini Brownie', category: 'Desserts', description: 'A rich, gooey dessert with a soft center and sweet finish', variants: [{ price: 15000, description: 'Classic', stock: 12 }], photoUrl: 'assets/mini brownie.jpg' },
     { name: 'Chocolate Cake', category: 'Desserts', description: 'Decadent layered chocolate cake', variants: [{ price: 45000, description: 'Slice', stock: 8 }], photoUrl: 'assets/chocolate-poke-cake-3.webp' },
