@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const bankName = params.get('bank') || 'BCA';
-const accountName = params.get('name') || 'Calvin Carol Sen';
-const bankAccountNumber = params.get('number') || '4373489584';
+const accountName = params.get('name') || 'Kongkow Cafe';
+const bankAccountNumber = params.get('number') || '43734895-70';
 const amount = params.get('amount') || '0';
 const reference = params.get('reference') || 'ORDER-0000';
 
