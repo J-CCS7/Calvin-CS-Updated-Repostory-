@@ -501,7 +501,7 @@ body {
 }
 
 .intro-copy::before {
-    content: 'Our menu is crafted to make every visit feel like a pause worth savoring.';
+    content: '';
     display: block;
     margin: 0 auto 16px;
     max-width: 620px;

@@ -4,7 +4,12 @@ loadCart();
 
 function loadCart() {
     const params = new URLSearchParams(window.location.search);
-    cart = JSON.parse(params.get('cart'));
+    const cartParam = params.get('cart');
+    try {
+        cart = cartParam ? JSON.parse(cartParam) : [];
+    } catch (e) {
+        cart = [];
+    }
     const tableNumber = params.get('tableNumber') || '';
 
     let display = '';
@@ -27,11 +32,9 @@ function loadCart() {
 
         for (let j = 0; j < e.variants.length; j++) {
             const f = e.variants[j];
+            const qty = (cart[i] && typeof cart[i][j] === 'number') ? cart[i][j] : 0;
 
-            if (cart[i][j] > 0) {
-
-                const qty = cart[i][j];
-
+            if (qty > 0) {
                 const subtotal = f.price * qty;
 
                 totalItem += qty;
@@ -96,8 +99,12 @@ function loadCart() {
 
     const localQrAsset = '../assets/My First Qr Code With The Link.png';
 
-    paymentLink.href = qrData;
-    paymentLink.textContent = 'Open payment page';
-    paymentQr.src = localQrAsset;
-    paymentQr.alt = 'Payment QR code';
+    if (paymentLink) {
+        paymentLink.href = qrData;
+        paymentLink.textContent = 'Open payment page';
+    }
+    if (paymentQr) {
+        paymentQr.src = localQrAsset;
+        paymentQr.alt = 'Payment QR code';
+    }
 }

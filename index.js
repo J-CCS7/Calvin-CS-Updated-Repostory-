@@ -32,8 +32,8 @@ function substractQty(menuIndex, variantIndex) {
     }
 
     const id = `qty-${menuIndex}-${variantIndex}`;
-
-    document.getElementById(id).innerHTML = cart[menuIndex][variantIndex];
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = cart[menuIndex][variantIndex];
 }
 
 function addQty(menuIndex, variantIndex) {
@@ -48,8 +48,8 @@ function addQty(menuIndex, variantIndex) {
     }
 
     const id = `qty-${menuIndex}-${variantIndex}`;
-
-    document.getElementById(id).innerHTML = cart[menuIndex][variantIndex];
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = cart[menuIndex][variantIndex];
 }
 
 function setupCart() {
@@ -100,7 +100,7 @@ function renderMenus() {
                                 do_not_disturb_on
                             </span>
                         </button>
-                        <span class="qty" id="${qtyId}">0</span>
+                        <span class="qty" id="${qtyId}">${cart[i] && cart[i][j] ? cart[i][j] : 0}</span>
                         <button onclick="addQty(${i}, ${j})">
                             <span class="material-symbols-outlined">
                                 add_circle
@@ -113,7 +113,7 @@ function renderMenus() {
 
         menuGrid += `
             <div class="menu-card">
-                <img src="${menus[i].photoUrl}" alt="${menus[i].name}" id="pic">
+                <img src="${menus[i].photoUrl}" alt="${menus[i].name}" class="menu-pic">
                 <h3 class="menu-name">${menus[i].name}</h3>
                 <p class="menu-description">${menus[i].description}</p>
                 ${menuVariantList}
