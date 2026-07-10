@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KC - Order Confirmation</title>
+
+    <style>
+        body {
+            background: #ececec;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .receipt {
+            width: 320px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            border-radius: 10px;
+            font-family: "Courier New", monospace;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 10px;
+            color: gray;
+        }
+
+        .line {
+            border-top: 1px dashed black;
+            margin: 10px 0;
+        }
+
+        .payment-section {
+            margin: 16px 0;
+            text-align: center;
+        }
+
+        .payment-label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .payment-link {
+            display: inline-block;
+            margin-bottom: 12px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background: #6d8f65;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .payment-qr {
+            width: 160px;
+            max-width: 100%;
+            margin: 0 auto 10px;
+            display: block;
+        }
+
+        .payment-help {
+            display: block;
+            color: gray;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            margin: 6px 0;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 12px;
+            color: gray;
+        }
+
+        .total {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .reminder {
+            margin-top: 14px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            background: #fff4d6;
+            border: 1px solid #e8c86b;
+            color: #7a5a00;
+            font-size: 12px;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .whatsapp-fab {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 999px;
+            border: none;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            box-shadow: 0 10px 24px rgba(18, 140, 126, 0.35);
+            z-index: 1000;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .whatsapp-fab:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 14px 28px rgba(18, 140, 126, 0.4);
+        }
+
+        .whatsapp-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            font-size: 16px;
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-fab {
+                right: 14px;
+                bottom: 14px;
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="receipt">
+        <div class="title">Kongkow Cafe</div>
+        <div class="subtitle">Order Confirmation</div>
+
+        <div id="date"></div>
+
+        <div class="line"></div>
+
+        <div id="cart"></div>
+
+        <div class="line"></div>
+
+        <div class="payment-section" id="paymentSection">
+            <div class="payment-label">Ready to pay?</div>
+            <a id="paymentLink" class="payment-link" href="#" target="_blank">Open payment page</a>
+            <img id="paymentQr" class="payment-qr" alt="Payment QR code" src="../assets/My First Qr Code With The Link.png" />
+            <small class="payment-help">Scan Qr code or click the link to open the bank transfer page and complete your payment.</small>
+        </div>
+
+        <div class="total" id="totalItem"></div>
+
+        <div class="reminder">
+            Please don’t forget to send your order lists by clicking the "Send Order" button.
+        </div>
+
+        <div class="footer">
+            Thank You For Shopping At Kongkow Cafe ❤️
+        </div>
+    </div>
+
+    <a id="whatsappButton" class="whatsapp-fab" href="#" target="_blank" rel="noopener noreferrer" aria-label="Send this order to WhatsApp">
+        <span class="whatsapp-icon">💬</span>
+        <span>Send order</span>
+    </a>
+
+    <script src="../db.js"></script>
+    <script src="index.js"></script>
+
+</body>
+
+</html>
