@@ -171,13 +171,17 @@ function checkout() {
         return;
     }
 
-    const params = new URLSearchParams();
     const tableNumberInput = document.getElementById('table-number');
     const tableNumber = tableNumberInput ? tableNumberInput.value.trim() : '';
 
-    params.set('cart', JSON.stringify(cart));
-    if (tableNumber) {
-        params.set('tableNumber', tableNumber);
+    if (!tableNumber) {
+        alert('Please fill in your table or address marker before checkout.');
+        tableNumberInput?.focus();
+        return;
     }
+
+    const params = new URLSearchParams();
+    params.set('cart', JSON.stringify(cart));
+    params.set('tableNumber', tableNumber);
     window.location.href = `order-confirmation/index.html?${params.toString()}`;
 }

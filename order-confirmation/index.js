@@ -69,7 +69,7 @@ function loadCart() {
     `;
 
     document.getElementById('date').innerHTML = tableText
-        ? `<div>${dateText}</div><div>${tableText}</div>`
+        ? `<div>${dateText}</div><div><strong>${tableText}</strong></div>`
         : dateText;
 
     orderLines.push('');
