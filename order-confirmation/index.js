@@ -20,7 +20,7 @@ function loadCart() {
 
     const today = new Date();
     const dateText = today.toLocaleString('id-ID');
-    const tableText = tableNumber ? `Table: ${tableNumber}` : '';
+    const tableText = tableNumber ? `Table Number/ Address: ${tableNumber}` : '';
     orderLines.push(`Date: ${dateText}`);
     if (tableText) {
         orderLines.push(tableText);
@@ -91,7 +91,7 @@ function loadCart() {
     paymentUrl.searchParams.set('name', 'Kongkow Cafe');
     paymentUrl.searchParams.set('number', '43734895-70');
     paymentUrl.searchParams.set('amount', paymentAmount);
-    paymentUrl.searchParams.set('reference', tableNumber ? `Table-${tableNumber}` : 'Table-0000');
+    paymentUrl.searchParams.set('reference', tableNumber ? `Table Number/ Address - ${tableNumber}` : 'Table Number/ Address - 0000');
 
     const paymentLink = document.getElementById('paymentLink');
     const paymentQr = document.getElementById('paymentQr');
